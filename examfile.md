@@ -121,7 +121,7 @@ In this third part, we are going to break our application into 3 services.
 
 >```
 >$ cd docker/part3/writer
->`
+>```
 
 First, let us create the writer service which is responsible to writing our information in the database. 
 To do so, create a file called **writer.py** and copy paste the following: 
@@ -272,7 +272,7 @@ For this section create the following directory:
 
 >```
 >$ cd kubernetes
->`
+>```
 
 In order to deploy our application in kubernetes, we will need to create the following resources: 
 - Pods: 

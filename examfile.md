@@ -276,38 +276,37 @@ For this section create the following directory:
 >```
 
 In order to deploy our application in kubernetes, we will need to create the following resources: 
+
 - Pods: 
 
   - mydbserver pod
     - Declare the port used by the container 
-```yaml
-    - containerPort: 3306
-```
+      ```yaml
+          - containerPort: 3306
+      ```
     - Use the following image name `mysql`
     - Declare the following environment variable
-```yaml
-    - name: MYSQL_ROOT_PASSWORD
-      value: mypassword
-```
-
+      ```yaml
+          - name: MYSQL_ROOT_PASSWORD
+            value: mypassword
+      ```
   - writer pod
     - Use the image `writer:3.0` you pushed in 1.3.1
     - Declare the following environment variable
-```yaml
-    - name: NAME
-      value: k8s-yourname
-    - name: EMAIL
-      value: k8s-your_email
-    - name: SCHOOL
-      value: k8s-your_school
-```
-
+      ```yaml
+          - name: NAME
+            value: k8s-yourname
+          - name: EMAIL
+            value: k8s-your_email
+          - name: SCHOOL
+            value: k8s-your_school
+      ```
   - reader
     - Use the image `reader:3.0` you pushed in 1.3.2
     - Declare the port used by the container 
-```yaml
-    - containerPort: 8080
-```
+      ```yaml
+          - containerPort: 8080
+      ```
 
 - Services:
 

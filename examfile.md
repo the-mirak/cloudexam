@@ -114,6 +114,7 @@ Finally, build then push the image to your dockerhub repository under the follow
 
 In this third part, we are going to break our application into 3 services. 
 - Database service
+  - `docker run --name mydbserver -e MYSQL_ROOT_PASSWORD=mypassword -d mysql`
 - Writer service
 - Reader service
 

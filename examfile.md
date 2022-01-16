@@ -17,6 +17,7 @@ For this first section create the following directories:
     - writer
     - reader
   - part4
+    - healthchecks
 
 
 ### 1.1 Part 1
@@ -248,13 +249,13 @@ To do so, write a **docker-compose.yaml** file by taking under the consideration
   - reader
     - Build the image in the docker compose file
     - Name the container **reader**
-    - The reader service depends on the mydbserver service *(find the healthcheck script for mysql in the healthcheck folder)*
+    - The reader service depends on the mydbserver service *(put the mysql healthcheck script in the healthchecks folder)*
     - expose and publish the application on port 8080 
     - Connect the service to the "myappnetwork" network
   - writer
     - Build the image in the docker compose file
     - Name the container **wirter**
-    - The writer service depends on the mydbserve servuce *(find the healthcheck script for mysql in the healthcheck folder)*
+    - The writer service depends on the mydbserve servuce *(put the mysql healthcheck script in the healthchecks folder)*
     - The writer service depends on the reader service being started 
     - Connect the service to the "myappnetwork" network
   - mydbserver
@@ -301,7 +302,7 @@ In order to deploy our application in kubernetes, we will need to create the fol
           - name: SCHOOL
             value: k8s-your_school
       ```
-  - reader
+  - reader pod
     - Use the image `reader:3.0` you pushed in 1.3.2
     - Declare the port used by the container 
       ```yaml
@@ -316,6 +317,8 @@ In order to deploy our application in kubernetes, we will need to create the fol
   - reader service
     - This service needs to be exposed externally 
  
+
+
 <br>
 
 Congratulations you have reached the end!

@@ -1,30 +1,35 @@
 
 
-# ipsum lorem
+# Cloud Exam 2022
 
 
-## ipsum lorem
+## 1. Section 1 
 
  
-ipsum lorem **ipsum lorem** ipsum lorem.
- 
+In this first section you are tasked to dockerize a simple python application that displays the following: 
+- Your name
+- Your school name 
+- Your email
 
-ipsum lorem
-- ipsum loremE
-- ipsum lorem
-- ipsum lorem
+For this first section create the following directories: 
+- docker
+  - part1
+  - part2
+  - part3
+  - part4
 
 
-### 1. ipsum lorem
+### 1.1 Part 1
 
-ipsum lorem
 
-Part 1: 
+>```
+>$ cd docker/part1
+>```
 
-First app 
+In this first part you are tasked to dockerize the python application. 
 
-service.py
 
+First create a file called **service.py** and copy paste the following:  
 ```
 import hug
 import random
@@ -42,23 +47,22 @@ def verify():
 
 ```
 
-
-
-requirements.txt
+Then, create a file called **requirements.txt** to manage the requirements of our application: 
 ```
 hug==2.6.1
 gunicorn==19.8.1
 pytest==3.7.0
 ```
 
+In order to 
 
-The code source should be copied at `/usr/src/app`
-To install the requirements run the following `pip install --no-cache-dir -r requirements.txt`
+> The code source should be copied at `/usr/src/app`
+> To install the requirements run the following `pip install --no-cache-dir -r requirements.txt`
 
-Make sure to expose the application on the following port `8080`
+> Make sure to expose the application on the following port `8080`
 
-To run the application add the following instruction in your Dockerfile `CMD ["gunicorn", "-b", "0.0.0.0:8080", "service:__hug_wsgi__"]
-`
+> To run the application add the following instruction in your Dockerfile `CMD ["gunicorn", "-b", "0.0.0.0:8080", "service:__hug_wsgi__"]`
+
 
 
 ##############################

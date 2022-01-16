@@ -278,11 +278,11 @@ For this section create the following directory:
 In order to deploy our application in kubernetes, we will need to create the following resources: 
 - Pods: 
   - mydbserver pod
-    - Use the following image name `mysql`
     - Declare the port used by the container 
 ```yaml
     - containerPort: 3306
-```    
+```
+    - Use the following image name `mysql`
     - Declare the following environment variable
 ```yaml
     - name: MYSQL_ROOT_PASSWORD

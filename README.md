@@ -5,7 +5,7 @@
 ## 1. Section 1 
  
 In this first section you are tasked to dockerize a simple python application that displays the following: 
-- Your name
+- Your name 
 - Your school name 
 - Your email
 
@@ -26,8 +26,8 @@ For this first section create the following directories:
 >$ cd docker/part1
 >```
 
-In this first part you are tasked to dockerize the python application. 
-First create a file called **service.py** and copy paste the following:  
+In this first part, you are tasked with dockerizing the python application. 
+First, create a file called **service.py** and copy-paste the following:  
 ```
 import hug
 import random
@@ -58,7 +58,7 @@ In order to dockerize our application you need to create a **Dockerfile**. Insid
 > - Make sure to expose the application on port: `8080`
 > - To execute the application, add the following instruction in your Dockerfile: `CMD ["gunicorn", "-b", "0.0.0.0:8080", "service:__hug_wsgi__"]`
 
-Finally, build then push the image to your dockerhub repository under the following name: `reader:1.0`
+Finally, build then push the image to your docker hub repository under the following name: `reader:1.0`
 
 
 ### 1.2 Part 2
@@ -67,8 +67,8 @@ Finally, build then push the image to your dockerhub repository under the follow
 >$ cd docker/part2
 >```
 
-In this second part, we are going to make our display dynamique through environment variables.
-To do so, makes sure that your **serivce.py** file matches the following: 
+In this second part, we are going to make our display become dynamic through environment variables.
+To do so, make sure that your **serivce.py** file matches the following: 
 ```
 import hug
 import random
@@ -98,13 +98,13 @@ pytest==3.7.0
 ```
 
 In order to dockerize our application you need to create a **Dockerfile**. Inside this dockerfile you need to take under consideration the following: 
-> - Use the following environments variables in your Dockerfile `NAME="df_your_name"`, `SCHOOL="df_your_school"`, `EMAIL="df_your_email"` 
+> - Use the following environments variables in your Dockerfile `NAME="df-your_name"`, `SCHOOL="df-your_school"`, `EMAIL="df-your_email"` 
 > - The code source should be copied in: `/usr/src/app`
 > - To install the requirements RUN the following: `pip install --no-cache-dir -r requirements.txt`
 > - Make sure to expose the application on port: `8080`
 > - To execute the application, add the following instruction in your Dockerfile: `CMD ["gunicorn", "-b", "0.0.0.0:8080", "service:__hug_wsgi__"]`
 
-Finally, build then push the image to your dockerhub repository under the following name: `reader:2.0`
+Finally, build then push the image to your docker hub repository under the following name: `reader:2.0`
 
 
 ### 1.3 Part 3
@@ -125,8 +125,8 @@ In this third part, we are going to break our application into 3 services.
 >$ cd docker/part3/writer
 >```
 
-First, let us create the writer service which is responsible to writing our information in the database. 
-To do so, create a file called **writer.py** and copy paste the following: 
+First, let us create the writer service which is responsible for writing our information in the database. 
+To do so, create a file called **writer.py** and copy-paste the following: 
 ```
 import mysql.connector
 import os 
@@ -170,7 +170,7 @@ In order to dockerize our application you need to create a **Dockerfile**. Insid
 > - Use the following environments variables in your Dockerfile `NAME="ms-your_name"`, `SCHOOL="ms-your_school"`, `EMAIL="ms-your_email"` 
 > - To run the application add the following instruction in your Dockerfile `CMD [ "python", "./writer.py" ]`
 
-Finally, build then push the image to your dockerhub repository under the following name: `writer:3.0`
+Finally, build then push the image to your docker hub repository under the following name: `writer:3.0`
 
 
 #### 1.3.2 Reader service
@@ -180,7 +180,7 @@ Finally, build then push the image to your dockerhub repository under the follow
 >```
 
 Secondly, let us create the reader service which is responsible to read our information from the database and display them. 
-To do so, create a file called **service.py** and copy paste the following: 
+To do so, create a file called **service.py** and copy-paste the following: 
 ```
 import hug
 import random
@@ -231,7 +231,7 @@ In order to dockerize our application you need to create a **Dockerfile**. Insid
 > - Make sure to expose the application on port: `8080`
 > - To execute the application, add the following instruction in your Dockerfile: `CMD ["gunicorn", "-b", "0.0.0.0:8080", "service:__hug_wsgi__"]`
  
-Finally, build then push the image to your dockerhub repository under the following name: `reader:3.0`
+Finally, build then push the image to your docker hub repository under the following name: `reader:3.0`
 
 
 ### 1.4 Part 4:
@@ -242,20 +242,20 @@ Finally, build then push the image to your dockerhub repository under the follow
 >$ cd docker/part4
 >```
 
-In this final part, we are going to put our application in a docker compose file. 
+In this final part, we are going to put our application in a docker-compose file. 
 To do so, write a **docker-compose.yaml** file by taking under the consideration the following instructions: 
 
 - Create three services: 
   - reader
-    - Build the image in the docker compose file
+    - Build the image in the docker-compose file
     - Name the container **reader**
     - The reader service depends on the mydbserver service *(put the mysql healthcheck script in the healthchecks folder)*
     - expose and publish the application on port 8080 
     - Connect the service to the "myappnetwork" network
   - writer
-    - Build the image in the docker compose file
-    - Name the container **wirter**
-    - The writer service depends on the mydbserve servuce *(put the mysql healthcheck script in the healthchecks folder)*
+    - Build the image in the docker-compose file
+    - Name the container **writer**
+    - The writer service depends on the mydbserve service *(put the mysql healthcheck script in the healthchecks folder)*
     - The writer service depends on the reader service being started 
     - Connect the service to the "myappnetwork" network
   - mydbserver
@@ -268,7 +268,7 @@ To do so, write a **docker-compose.yaml** file by taking under the consideration
 
 ## 2. Section 2 
  
-In this second section we will take our python application to the kubernetes environment and deploy it. 
+In this second section, we will take our python application to the Kubernetes environment and deploy it. 
 For this section create the following directory: 
 - kubernetes
 
@@ -276,7 +276,7 @@ For this section create the following directory:
 >$ cd kubernetes
 >```
 
-In order to deploy our application in kubernetes, we will need to create the following resources: 
+In order to deploy our application in Kubernetes, we will need to create the following resources: 
 
 - Pods: 
 
@@ -296,7 +296,7 @@ In order to deploy our application in kubernetes, we will need to create the fol
     - Declare the following environment variable
       ```yaml
           - name: NAME
-            value: k8s-yourname
+            value: k8s-your_name
           - name: EMAIL
             value: k8s-your_email
           - name: SCHOOL

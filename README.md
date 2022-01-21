@@ -19,6 +19,9 @@ For this first section create the following directories:
   - part4
     - healthchecks
 
+NB: Docker Hub creds
+ - kloudtraining
+ - mundia2022
 
 ### 1.1 Part 1
 
